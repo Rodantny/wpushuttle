@@ -62,7 +62,8 @@ class Header extends Component {
    render() {
       return (
          <div>
-             <img src={logo} className="App-logo" alt="logo" />
+             <h1 className="BusName uppercase">Where's The Shuttle?</h1>
+             <br></br>  <br></br>  <br></br>  <br></br>  
          </div>
       );
    }

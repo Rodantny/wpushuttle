@@ -1,4 +1,31 @@
-.bus{
+.CardContainer{
+     position: relative;
+ }
+
+.Bus{
     padding:10px;
     margin:10px;
+}
+
+.isRunning{
+    background-color:#A0D468;
+    border:0px;
+    font-size: 20px;
+    font-family: 'PT Serif', serif;
+}
+
+.BusName{
+    position: relative; left: 50%;
+    transform: translateX(-50%);
+    padding:0px;
+    margin:0px;
+    z-index: 2;
+    top:30px;
+    font-size:50px;
+    font-family: 'PT Serif', serif;
+
+}
+
+.uppercase{
+text-transform: uppercase;
 }
