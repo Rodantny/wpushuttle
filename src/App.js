@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        fetch('http://api.wpushuttle.com/')
+        fetch('http://api.wpushuttle.com/bus')
             .then(res => res.json())
             .then(
                 (result) => {
@@ -48,10 +48,12 @@ class App extends Component {
 
                     <ul>
                         {items.map(item => (
-                            <li>
-                                {item.bus_name} {item.bus_id}
-                                <b> {item.id = '1' ? 'The Shuttle is at ' + (item.bus_name) : 'This shuttle is not running'}</b>
-                            </li>
+                            <div>
+                                {item.bus_name}<br></br>
+                                <b> {item.my_field = 0? 'The Shuttle is at ' + (item.bus_id) : 'This shuttle is not running'}</b>
+                                <br></br>
+                                <br></br>
+                            </div>
                         ))}
                     </ul>
                     <div>
