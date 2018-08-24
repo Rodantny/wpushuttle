@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import BusCard from './BusCard.js';
 
 class App extends Component {
 
@@ -45,17 +46,8 @@ class App extends Component {
             return (
                 <div className="App">
                     <Header/>
+                    <BusCard items = {items} />
 
-                    <ul>
-                        {items.map(item => (
-                            <div>
-                                {item.bus_name}<br></br>
-                                <b> {item.my_field = 0? 'The Shuttle is at ' + (item.bus_id) : 'This shuttle is not running'}</b>
-                                <br></br>
-                                <br></br>
-                            </div>
-                        ))}
-                    </ul>
                     <div>
 
                         <Footer/>
@@ -66,25 +58,34 @@ class App extends Component {
     }
 }
 
-
-
 class Header extends Component {
    render() {
       return (
          <div>
-            <h2>Header</h2>
              <img src={logo} className="App-logo" alt="logo" />
          </div>
       );
    }
 }
 
+
+
 class Footer extends Component {
    render() {
       return (
          <div>
-            <h2>Footer</h2>
-            <p>The Footer text!!!</p>
+             <div className="container">
+                 <p><b><a href="https://www.wpunj.edu/commuter/shuttlemap.pdf">Full Shuttle Schedule</a></b></p>
+
+             <hr className="star-light"></hr>
+
+                     <p><b>Where's the Shuttle</b> is a web application that allows <b>William Paterson
+                         University</b> students
+                         view the location of all four campus shuttle buses.
+                         The current location of all shuttle buses are based on bus schedule, and not on real-time
+                         location data.</p>
+                     <p>Copyright © 2018 Rodantny J. Reyes</p>
+             </div>
          </div>
       );
    }
