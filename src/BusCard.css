@@ -3,15 +3,41 @@
  }
 
 .Bus{
-    padding:10px;
-    margin:10px;
+    padding-top:15px;
+    padding-left:5px;
+    padding-right:0px;
+    margin-top-bottom:15px;
+    border:0px;
+    font-family: 'PT Serif', serif;
+    border-radius: 10px;
+    height:100px;
+    z-index: 1;
+
 }
 
 .isRunning{
-    background-color:#A0D468;
+    background-color:#FFC674;
+}
+
+.isNotRunning{
+    background-color:#A00909;
+    color:white;
+}
+
+.footer{
+    text-align:center;
+    background-color:#495057;
+    color:#F8F9FA;
+    padding:15px;
+    margin:15px;
     border:0px;
-    font-size: 20px;
     font-family: 'PT Serif', serif;
+    border-radius: 10px;
+}
+
+.footer a:link{
+    color: #FFC674;
+
 }
 
 .BusName{
@@ -23,9 +49,74 @@
     top:30px;
     font-size:50px;
     font-family: 'PT Serif', serif;
+    text-align: center;
+}
 
+.CardBigText{
+    color:#F2F6FD;
+    background-color: #333333;
 }
 
 .uppercase{
 text-transform: uppercase;
 }
+
+.minute{
+    padding:0px;
+    margin:0px;
+    text-align:center;
+    font-size:30px;
+}
+.minute_text{
+    padding:0px;
+    margin:0px;
+    text-align:center;
+    font-size:10px;
+}
+
+.tables{
+    position: relative;
+}
+
+
+hr.star-light,
+hr.star-dark {
+    max-width: 15rem;
+    padding: 0;
+    text-align: center;
+    border: none;
+    border-top: solid 0.25rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    z-index: -100;
+}
+
+hr.star-light:after,
+hr.star-dark:after {
+    position: relative;
+    top: -.8em;
+    display: inline-block;
+    padding: 0 0.25em;
+    content: '\f207';
+    font-family: FontAwesome;
+    font-size: 2em;
+}
+
+hr.star-light {
+    border-color: #231F20;
+}
+
+hr.star-light:after {
+    color: #231F20;
+    background-color: #F7F0F5;
+}
+
+hr.star-dark {
+    border-color: #2C3E50;
+}
+
+hr.star-dark:after {
+    color: #2C3E50;
+    background-color: white;
+}
+
