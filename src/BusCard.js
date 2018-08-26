@@ -6,14 +6,14 @@ class BusCard extends Component {
     render() {
         return (
             <div  class="container" >
-                {this.props.items.map(item => (
+                {this.props.Buses.map(Bus => (
                     <div class="CardContainer">
                         <div  class=" col col-lg-6">
-                        <h1 class="BusName uppercase CardBigText">{item.bus_name}</h1>
-                        <div class={"card Bus shadow-lg " + (item.my_field? 'isRunning' : 'isNotRunning')} >
-                            <br></br>
-                            {item.my_field? <BusIsRunning item={item}/> :<BusNotRunning/>}
-                        </div></div></div>
+                            <div class="BusName uppercase CardBigText"><a>{Bus.bus_name}</a></div>
+                        <div class={"BusInformationCard shadow-lg " + (Bus.my_field? 'isRunning' : 'isNotRunning')} >
+
+                            {Bus.my_field? <BusIsRunning Bus={Bus}/> :<BusNotRunning/>}
+                        </div><br></br></div></div>
 
                 ))}
             </div>
@@ -26,14 +26,20 @@ class BusIsRunning extends Component {
         return (
 
             <div class="row">
-                <div className="col col-lg-2">
+                <div class="countdown">
                     <div className="minute">25</div>
                     <div className="minute_text">MINUTES</div>
                 </div>
-                <div className=" col col-lg-10">
-                    <i className="fas fa-arrow-circle-right"></i>  <b>The University Commons / Lot 5</b><br></br>
-                    Ben Shahn/Garage<br></br>
-                    {/* THIS IS A COMMENT {this.props.item.bus_name}*/}
+                <div class="BusDetails">
+
+                    <i className="fas fa-arrow-circle-right"></i>
+                        <b> The University Commons / Lot 5</b> <br></br>
+                    <a id="NextStop"> Ben Shahn/Garage</a>
+
+
+
+
+                    {/* THIS IS A COMMENT {this.props.Bus.bus_name}*/}
                 </div>
 
 
@@ -48,14 +54,16 @@ class BusNotRunning extends Component {
         return (
 
                 <div className="row">
-                    <div className=" col col-lg-10">
-                        Sorry! This Shuttle is not running at this time.
-                    </div>
 
-                    <div className=" col col-lg-2">
+                    <div className="countdown">
                         <div className="minute">XX</div>
                         <div className="minute_text">MINUTES</div>
                     </div>
+
+                    <div class="BusDetails" >
+                        <i className="fas fa-times-circle"></i> Sorry! This Shuttle is not running at this time.
+                    </div>
+
 
                 </div>
 

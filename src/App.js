@@ -10,7 +10,7 @@ class App extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            Buses: []
         }
     }
 
@@ -21,7 +21,7 @@ class App extends Component {
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result
+                        Buses: result
                     });
                 },
                 // Note: it's important to handle errors here
@@ -37,7 +37,7 @@ class App extends Component {
     }
 
     render() {
-        const {error, isLoaded, items} = this.state;
+        const {error, isLoaded, Buses} = this.state;
         if (error) {
             return <div>Error: </div>;
         } else if (!isLoaded) {
@@ -53,7 +53,7 @@ class App extends Component {
                     </header>
 
                     <main class="Site-content">
-                        <BusCard items = {items} />
+                        <BusCard Buses = {Buses} />
                     </main>
 
 
@@ -70,8 +70,10 @@ class Header extends Component {
       return (
          <div class="header container">
              <br></br>
-
-             <img src={logo} className="App-logo" alt="logo" />
+             <i className="fas fa-bus"></i><br></br>
+             <a> Where's the Shuttle?</a><br></br>
+             <a id='moto'> a shuttle bus location tracker for WPUNJ students</a>
+             {/* <img src={logo} className="App-logo" alt="logo" />*/}
 
          </div>
       );
@@ -85,15 +87,16 @@ class Footer extends Component {
       return (
 
              <div class="container ">
-                 <hr className="star-light"></hr>
-                 <div class="card footer">
+                 <div class="footer">
                      <p>Where's the Shuttle is a web application that allows William Paterson
                          University students
                          view the location of all four campus shuttle buses.
                          The current location of all shuttle buses are based on bus schedule, and not on real-time
                          location data.</p>
-                     <p>Copyright © 2018 Rodantny J. Reyes</p>
-                     <p><b><a href="https://www.wpunj.edu/commuter/shuttlemap.pdf">Full Shuttle Schedule</a></b></p>
+                     <p><a href="http://rodantnyreyes.com/">Copyright © 2018 Rodantny J. Reyes</a></p>
+                     <p><a id="FooterButton" href="https://www.wpunj.edu/commuter/shuttlemap.pdf">Full Shuttle Schedule</a></p>
+
+                     <a id="github" href="https://github.com/Rodantny"><i className="fab fa-github"></i></a>
                  </div>
              </div>
 
