@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba361fba-e3e9-43a1-9f96-de43409f715f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BusCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusCard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BusCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-    </list>
+    <list default="true" id="ba361fba-e3e9-43a1-9f96-de43409f715f" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +44,7 @@
           <entry key="gitignore" value="1" />
           <entry key="html" value="3" />
           <entry key="ico" value="2" />
-          <entry key="js" value="20" />
+          <entry key="js" value="21" />
           <entry key="svg" value="1" />
         </counts>
       </usages-collector>
@@ -59,7 +53,7 @@
           <entry key="CSS" value="31" />
           <entry key="HTML" value="3" />
           <entry key="Image" value="2" />
-          <entry key="JavaScript" value="20" />
+          <entry key="JavaScript" value="21" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SVG" value="1" />
         </counts>
@@ -72,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/src/BusCard.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="21" column="84" selection-start-line="21" selection-start-column="84" selection-end-line="21" selection-end-column="84" />
+              <caret line="21" column="71" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="85" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -194,12 +188,12 @@
       <updated>1534822405651</updated>
       <workItem from="1534989082941" duration="46394000" />
       <workItem from="1535261244479" duration="6102000" />
-      <workItem from="1535557819195" duration="54000" />
+      <workItem from="1535557819195" duration="219000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52550000" />
+    <option name="totallyTimeSpent" value="52715000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,7 +298,7 @@
     <entry file="file://$PROJECT_DIR$/src/BusCard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="21" column="84" selection-start-line="21" selection-start-column="84" selection-end-line="21" selection-end-column="84" />
+          <caret line="21" column="71" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="85" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
