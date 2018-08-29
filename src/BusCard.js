@@ -6,11 +6,20 @@ class BusCard extends Component {
     render() {
         return (
             <div  class="container" >
+
+                {/*{this.state.Bus_Location.map(location => (
+                    <div className="CardContainer">
+                        {location.location_id == 2? location.location_name :''}
+                    </div>
+                ))}*/}
+
+
                 {this.props.Buses.map(Bus => (
                     <div class="CardContainer">
+
                         <div  class=" col col-lg-6">
                             <div class="BusName uppercase CardBigText"><a>{Bus.bus_name}</a></div>
-                        <div class={"BusInformationCard shadow-lg " + (Bus.my_field? 'isRunning' : 'isNotRunning')} >
+                        <div class={"BusInformationCard shadow-lg " + (Bus.isRunning? 'isRunning' : 'isNotRunning')} >
 
                             {Bus.my_field? <BusIsRunning Bus={Bus}/> :<BusNotRunning/>}
                         </div><br></br></div></div>
@@ -27,19 +36,14 @@ class BusIsRunning extends Component {
 
             <div class="row">
                 <div class="countdown">
-                    <div className="minute">25</div>
+                    <div className="minute">01</div>
                     <div className="minute_text">MINUTES</div>
                 </div>
                 <div class="BusDetails">
 
-                    <i className="fas fa-arrow-circle-right"></i>
+                    <i className="fas fa-arrow-circle-right blinking"></i>
                         <b> The University Commons / Lot 5</b> <br></br>
                     <a id="NextStop"> Ben Shahn/Garage</a>
-
-
-
-
-                    {/* THIS IS A COMMENT {this.props.Bus.bus_name}*/}
                 </div>
 
 

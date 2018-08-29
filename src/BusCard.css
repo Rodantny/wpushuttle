@@ -74,6 +74,8 @@ text-transform: uppercase;
 .isRunning{background-color:#FFC674;}
 .isNotRunning{background-color:#A00909; color:white;}
 
+
+
 .countdown{
     padding-right: 10px;
     padding-left:25px;
@@ -99,5 +101,13 @@ text-transform: uppercase;
     width:70%;
 }
 
-
+.blinking{
+    animation:blinkingText 1s infinite;
+}
+@keyframes blinkingText{
+    0%{		color: inherit	}
+    50%{	color: inherit	}
+    60%{	color: transparent;	}
+    100%{	color: inherit	}
+}
 
