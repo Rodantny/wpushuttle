@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba361fba-e3e9-43a1-9f96-de43409f715f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/BusCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusCard.js" afterDir="false" />
-    </list>
+    <list default="true" id="ba361fba-e3e9-43a1-9f96-de43409f715f" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,12 +189,12 @@
       <updated>1534822405651</updated>
       <workItem from="1534989082941" duration="46394000" />
       <workItem from="1535261244479" duration="6102000" />
-      <workItem from="1535557819195" duration="1793000" />
+      <workItem from="1535557819195" duration="1984000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54289000" />
+    <option name="totallyTimeSpent" value="54480000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
