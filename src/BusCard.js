@@ -21,7 +21,7 @@ class BusCard extends Component {
                             <div class="BusName uppercase CardBigText"><a>{Bus.bus_name}</a></div>
                         <div class={"BusInformationCard shadow-lg " + (Bus.IsRunning? 'isRunning' : 'isNotRunning')} >
 
-                            {Bus.my_field? <BusIsRunning Bus={Bus}/> :<BusNotRunning/>}
+                            {Bus.IsRunning? <BusIsRunning Bus={Bus}/> :<BusNotRunning/>}
                         </div><br></br></div></div>
 
                 ))}
