@@ -93,7 +93,7 @@ class Footer extends Component {
                          The current location of all shuttle buses are based on bus schedule, and not on real-time
                          location data.</p>
                      <p><a href="http://rodantnyreyes.com/">Copyright © 2018 Rodantny J. Reyes</a></p>
-                     <p><a id="FooterButton" href="https://www.wpunj.edu/commuter/shuttlemap.pdf">Full Shuttle Schedule</a></p>
+                     <p><a id="FooterButton" href="https://www.wpunj.edu/directories/assets/Bus%20Schedules_8_16_18HR.pdf">Full Shuttle Schedule</a></p>
 
                      <a id="github" href="https://github.com/Rodantny"><i className="fab fa-github"></i></a>
                  </div>
