@@ -5,23 +5,15 @@ import './BusCard.css';
 class BusCard extends Component {
     render() {
         return (
-            <div  class="container" >
-
-                {/*{this.state.Bus_Location.map(location => (
-                    <div className="CardContainer">
-                        {location.location_id == 2? location.location_name :''}
-                    </div>
-                ))}*/}
-
-
-                {this.props.Buses.map((Bus) => (
+            <div  className="container" >
+                {this.props.Buses.map((Bus,i) => (
                     <div class="CardContainer">
 
                         <div  class=" col col-lg-6">
                             <div class="BusName uppercase CardBigText"><a>{Bus.bus_name}</a></div>
-                        <div class={"BusInformationCard shadow-lg " + (Bus.IsRunning? 'isRunning' : 'isRunning')} >
+                        <div class={"BusInformationCard shadow-lg " + (Bus.IsRunning? 'isRunning' : 'isNotRunning')} >
 
-                            {Bus.IsRunning? <BusIsRunning Bus={Bus} /> :<BusIsRunning Bus={Bus}/>}
+                            {Bus.IsRunning? <BusIsRunning Bus={Bus} key={i}/>:<BusNotRunning Bus={Bus}/>}
                         </div><br></br></div></div>
 
                 ))}
@@ -35,87 +27,73 @@ class BusIsRunning extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            error: null,
-            isLoaded: false,
-            current_stop: []
+            current_stop: [],
+            x:0,
         }
     }
 
     componentDidMount() {
+        this.fetch_state()
+        this.timer = setInterval(()=> this.refresh(), 5000)
+
+    }
+
+    fetch_state(){
         fetch('http://api.wpushuttle.com/currentstop')
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
-                        isLoaded: true,
-                        current_stop: result
-                    });
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
+                        current_stop: result,
+                        x: this.state.x + 1
                     });
                 }
+
             )
     }
 
+    async refresh(){
+        this.fetch_state();
+    }
+
     render() {
-        const {error, isLoaded, current_stop} = this.state;
             return (
+                <div>
 
-            <div class="row">
-                <div class="countdown">
+                            {this.state.current_stop.map((current_stop, i) => (
+                                <div >
+                                    {this.props.Bus.bus_id === current_stop.bus ?
+                                        (current_stop.waiting ?
+                                                <BusisWaiting current_stop={current_stop} key={i} Bus={this.props.Bus}/>
+                                                : <BusNotWaiting current_stop={current_stop} key={i} Bus={this.props.Bus}/>
+                                        )
+                                        : ''
+                                    }
+                                </div>
+                            ))}
 
 
-
-                    <div className="minute">01</div>
-                    <div className="minute_text">MINUTES</div>
                 </div>
-                <div class="BusDetails">
-                    {this.props.Bus.bus_Name} {this.props.key}
-
-                    {/*<TestCard current_stop = {current_stop} Bus={this.props.Bus} />*/}
-
-                    {current_stop.map(current_stop => (
-                        <div>
-
-                            {this.props.Bus.bus_id == current_stop.bus? <PrintBusLocation  current_stop = {current_stop} />: ''}
-                        </div>
-
-                    ))}
-
-
-                    {/*
-                    <i className="fas fa-arrow-circle-right blinking"></i>
-                        <b> The University Commons / Lot 5</b> <br></br>
-                    <a id="NextStop"> Ben Shahn/Garage</a>
-                    */}
-                </div>
-
-
-
-            </div>
         );
     }
 }
 
-
-class PrintBusLocation extends Component {
+class BusisWaiting extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            error: null,
-            isLoaded: false,
             Currentlocation: [],
-            Nextlocation: []
+            Nextlocation: [],
         }
     }
 
+
     componentDidMount() {
+        this.fetch_state();
+        this.timer = setInterval(()=> this.refresh(), 5000);
+    }
+
+    fetch_state(){
         var CurrentLocationID = this.props.current_stop.location
         var NextLocationID = this.props.current_stop.next_location
         var url = 'http://api.wpushuttle.com/stoplocation/'
@@ -125,7 +103,6 @@ class PrintBusLocation extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        isLoaded: true,
                         Currentlocation: result
                     });
                 }
@@ -136,28 +113,107 @@ class PrintBusLocation extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        isLoaded: true,
                         Nextlocation: result
                     });
                 }
             )
     }
+    async refresh(){
+        this.fetch_state();
+    }
 
     render() {
-        const {Currentlocation,Nextlocation} = this.state;
+        const {Currentlocation,Nextlocation, } = this.state;
+
         return (
+        <div className="row">
+            <div className="countdown">
 
-            <div>
-                <i className="fas fa-arrow-circle-right blinking"></i> <b>{Currentlocation.location_name}</b><br></br>
+
+                <div className="minute">
+                    0
+                </div>
+                <div className="minute_text">MINUTES<br></br>AWAY</div>
+            </div>
+
+            <div className="BusDetails">
+                <i className="fas fa-flag"></i><b> {Currentlocation.location_name}</b><br></br>
                 {Nextlocation.location_name}
+            </div>
+        </div>
 
+        );
+    }
+}
+
+class BusNotWaiting extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            Nextlocation: [],
+            NextNextlocation: [],
+        }
+    }
+
+    componentDidMount() {
+        this.fetch_state();
+        this.timer = setInterval(()=> this.refresh(), 5000);
+    }
+
+    fetch_state(){
+        var NextLocationID = this.props.current_stop.next_location
+        var NextNextLocationID = this.props.current_stop.next_next_location
+        var url = 'http://api.wpushuttle.com/stoplocation/'
+
+        fetch(url + NextLocationID)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        Nextlocation: result
+                    });
+                }
+            )
+
+        fetch(url + NextNextLocationID)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        NextNextlocation: result
+                    });
+                }
+            )
+
+    }
+
+    async refresh(){
+        this.fetch_state();
+    }
+
+    render() {
+        const {Nextlocation,NextNextlocation } = this.state;
+
+        return (
+            <div className="row">
+                    <div className="countdown">
+
+
+                        <div className="minute">
+                            {this.props.current_stop.next_location_eta}
+                        </div>
+                        <div className="minute_text">{this.props.current_stop.next_location_eta <= 1? 'MINUTE': 'MINUTES'}<br></br>AWAY</div>
+                    </div>
+                <div className="BusDetails">
+                    <i className="fas fa-arrow-circle-right blinking"></i>  <b>{Nextlocation.location_name}</b><br></br>
+                    {NextNextlocation.location_name}
+                </div>
             </div>
 
 
         );
     }
 }
-
 
 class BusNotRunning extends Component {
     render() {

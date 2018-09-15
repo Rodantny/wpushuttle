@@ -12,8 +12,32 @@ class App extends Component {
             Buses: []
         }
     }
-
     componentDidMount() {
+        fetch('http://api.wpushuttle.com/bus')
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        Buses: result
+                    });
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+        this.timer = setInterval(()=> this.refresh(), 5000)
+
+    }
+
+
+    async refresh(){
         fetch('http://api.wpushuttle.com/bus')
             .then(res => res.json())
             .then(
@@ -35,6 +59,7 @@ class App extends Component {
             )
     }
 
+
     render() {
         const {error, isLoaded, Buses} = this.state;
         if (error) {
@@ -52,7 +77,9 @@ class App extends Component {
                     </header>
 
                     <main class="Site-content">
-                        <BusCard Buses = {Buses} />
+
+                            <BusCard Buses = {Buses} />
+
                     </main>
 
 
