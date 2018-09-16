@@ -1,4 +1,4 @@
-## Where's the Shuttle Bus? - [WPUshuttle.com](https://www.wpushuttle.com)
+## Where's the Shuttle Bus? - [WPUshuttle.com](http://www.wpushuttle.com)
 
 Where's the Shuttle is a web application that allows William Paterson University students track the current location of all four campus shuttle buses.
 ### Features
