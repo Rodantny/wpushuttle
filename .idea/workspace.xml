@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba361fba-e3e9-43a1-9f96-de43409f715f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BusCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registerServiceWorker.js" beforeDir="false" />
-    </list>
+    <list default="true" id="ba361fba-e3e9-43a1-9f96-de43409f715f" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,12 +218,12 @@
       <workItem from="1535261244479" duration="6102000" />
       <workItem from="1535557819195" duration="1984000" />
       <workItem from="1536548279082" duration="2163000" />
-      <workItem from="1536635552250" duration="29803000" />
+      <workItem from="1536635552250" duration="30400000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86446000" />
+    <option name="totallyTimeSpent" value="87043000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
