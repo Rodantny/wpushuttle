@@ -1,7 +1,6 @@
-## Where's the Shuttle Bus? - wpushuttle.com
+## Where's the Shuttle Bus? - [WPUshuttle.com](https://www.wpushuttle.com)
 
 Where's the Shuttle is a web application that allows William Paterson University students track the current location of all four campus shuttle buses.
-
 ### Features
 
 - Display currently running buses.
@@ -14,3 +13,12 @@ Where's the Shuttle is a web application that allows William Paterson University
 ### Technology
 
 ![TECH](http://www.rodantnyreyes.com/images/wpshuttle/shuttle_stack.png "TECH")
+
+This application was built with the following technology:
+- ReactJs for the front end.
+- Django on the Backend.
+- and a PostgreSQL database to store data.
+
+Our Reactjs auto-generates components, and consumes data from a RESTapi built with Django. Our Django backend calculates the current location of each bus using the bus location data that we stored in our database.
+
+
