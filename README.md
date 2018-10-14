@@ -12,7 +12,7 @@ Where's the Shuttle is a web application that allows William Paterson University
 
 ### Technology
 
-![TECH](http://www.rodantnyreyes.com/images/wpshuttle/shuttle_stack.png "TECH")
+![TECH](http://rodantnyreyes.com/images/project/shuttle_stack.png "TECH")
 
 This application was built with the following technology:
 - ReactJs for the front end.
