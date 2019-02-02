@@ -7,14 +7,15 @@ class BusCard extends Component {
         return (
             <div  className="container" >
                 {this.props.Buses.map((Bus,i) => (
-                    <div class="CardContainer">
+                    <div class="CardContainer ">
 
                         <div  class=" col col-lg-6">
                             <div class="BusName uppercase CardBigText"><a>{Bus.bus_name}</a></div>
                         <div class={"BusInformationCard shadow-lg " + (Bus.IsRunning? 'isRunning' : 'isNotRunning')} >
 
-                            {Bus.IsRunning? <BusIsRunning Bus={Bus} key={i}/>:<BusNotRunning Bus={Bus}/>}
-                        </div><br></br></div></div>
+                            {Bus.IsRunning? <BusIsRunning Bus={Bus} key={i}/>:<BusNotRunning Bus={Bus} key={i}/>}
+                        </div><br></br></div>
+                    </div>
 
                 ))}
             </div>
@@ -28,24 +29,22 @@ class BusIsRunning extends Component {
         super(props);
         this.state = {
             current_stop: [],
-            x:0,
         }
     }
 
     componentDidMount() {
-        this.fetch_state()
+        this.fetch_state();
         this.timer = setInterval(()=> this.refresh(), 5000)
 
     }
 
     fetch_state(){
-        fetch('http://api.wpushuttle.com/currentstop')
+        fetch('https://api.wpushuttle.com/currentstop')
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         current_stop: result,
-                        x: this.state.x + 1
                     });
                 }
 
@@ -94,9 +93,9 @@ class BusisWaiting extends Component {
     }
 
     fetch_state(){
-        var CurrentLocationID = this.props.current_stop.location
-        var NextLocationID = this.props.current_stop.next_location
-        var url = 'http://api.wpushuttle.com/stoplocation/'
+        var CurrentLocationID = this.props.current_stop.location;
+        var NextLocationID = this.props.current_stop.next_location;
+        var url = 'https://api.wpushuttle.com/stoplocation/';
 
         fetch(url + CurrentLocationID)
             .then(res => res.json())
@@ -163,7 +162,7 @@ class BusNotWaiting extends Component {
     fetch_state(){
         var NextLocationID = this.props.current_stop.next_location
         var NextNextLocationID = this.props.current_stop.next_next_location
-        var url = 'http://api.wpushuttle.com/stoplocation/'
+        var url = 'https://api.wpushuttle.com/stoplocation/'
 
         fetch(url + NextLocationID)
             .then(res => res.json())

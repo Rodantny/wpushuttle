@@ -1,12 +1,8 @@
-.CardContainer{
-     position: relative;
- }
-
-
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300');
 
 .footer{
     text-align:center;
-    background-color:#495057;
+    background-color:#24292E;
     color:#F8F9FA;
     padding-top:15px;
     padding-bottom:15px;
@@ -48,7 +44,7 @@
 }
 .CardBigText{
     color:#F2F6FD;
-    background-color: #495057;
+    background-color: #24292E;
     width:100%;
     margin:0px;
     padding:0px;
@@ -56,9 +52,10 @@
 }
 
 .CardBigText a{
-    font-size:40px;
-    font-family: 'Crimson Text', serif;
+    font-size:30px;
+    font-family: 'Fira Sans', sans-serif;
     text-align: center;
+    color:white;
 }
 
 .uppercase{
@@ -69,7 +66,8 @@ text-transform: uppercase;
     padding-bottom:15px;
     border:0px;
     font-family: 'PT Serif', serif;
-    border-radius: 0px 0px 30px 10px;
+    border-radius: 0px 0px 10px 10px;
+    min-height:90px;
 }
 .isRunning{background-color:#FFC674;}
 .isNotRunning{background-color:#A00909; color:white;}

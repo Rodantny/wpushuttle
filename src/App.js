@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import BusCard from './BusCard.js';
+import LoadingGif from './loading.gif';
 
 class App extends Component {
 
@@ -13,7 +14,7 @@ class App extends Component {
         }
     }
     componentDidMount() {
-        fetch('http://api.wpushuttle.com/bus')
+        fetch('https://api.wpushuttle.com/bus')
             .then(res => res.json())
             .then(
                 (result) => {
@@ -21,24 +22,14 @@ class App extends Component {
                         isLoaded: true,
                         Buses: result
                     });
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
                 }
-            )
+            );
         this.timer = setInterval(()=> this.refresh(), 5000)
 
     }
 
-
     async refresh(){
-        fetch('http://api.wpushuttle.com/bus')
+        fetch('https://api.wpushuttle.com/bus')
             .then(res => res.json())
             .then(
                 (result) => {
@@ -61,33 +52,14 @@ class App extends Component {
 
 
     render() {
-        const {error, isLoaded, Buses} = this.state;
-        if (error) {
-            return <div>Error: </div>;
-        } else if (!isLoaded) {
-            return <div>Loading...</div>;
-        } else {
             return (
-                <div className="App">
-
-
-
-                    <header>
-                        <Header/>
-                    </header>
-
-                    <main class="Site-content">
-
-                            <BusCard Buses = {Buses} />
-
-                    </main>
-
-
-                        <Footer/>
-
+                <div className="App animated fadeIn">
+                    <Header/>
+                    <BusCard Buses = {this.state.Buses} />
+                    <Footer/>
                 </div>
             );
-        }
+
     }
 }
 
@@ -96,7 +68,7 @@ class Header extends Component {
       return (
          <div class="header container">
              <br></br>
-             <i className="fas fa-bus"></i><br></br>
+             <i className="fas fa-bus animated zoomIn"></i><br></br>
              <a> Where's the Shuttle?</a><br></br>
              <a id='moto'> a shuttle bus location tracker for WPUNJ students</a>
              {/* <img src={logo} className="App-logo" alt="logo" />*/}
@@ -129,6 +101,20 @@ class Footer extends Component {
 
       );
    }
+}
+
+class Loading extends Component {
+    render() {
+        return (
+
+            <div >
+
+                <img className="loadingImg" alt='Dashed Note' src={LoadingGif}></img>
+            </div>
+
+
+        );
+    }
 }
 
 export default App;
