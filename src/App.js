@@ -19,8 +19,8 @@ class App extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        isLoaded: true,
-                        Buses: result
+                        Buses: result,
+                        isLoaded: true
                     });
                 }
             );
@@ -34,17 +34,7 @@ class App extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        isLoaded: true,
                         Buses: result
-                    });
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
                     });
                 }
             )
@@ -54,12 +44,22 @@ class App extends Component {
     render() {
             return (
                 <div className="App animated fadeIn">
-                    <Header/>
-                    <BusCard Buses = {this.state.Buses} />
-                    <Footer/>
+                    {this.state.isLoaded? <ShuttleTracker Buses = {this.state.Buses}/>:<Loading/>}
                 </div>
             );
 
+    }
+}
+
+class ShuttleTracker extends Component{
+    render(){
+        return(
+            <div className="App animated fadeIn">
+                <Header/>
+                <BusCard Buses = {this.props.Buses} />
+                <Footer/>
+            </div>
+        )
     }
 }
 
@@ -77,9 +77,6 @@ class Header extends Component {
       );
    }
 }
-
-
-
 class Footer extends Component {
    render() {
       return (
@@ -92,9 +89,8 @@ class Footer extends Component {
                          The current location of all shuttle buses are based on bus schedule, and not on real-time
                          location data.</p>
                      <p><a href="http://rodantnyreyes.com/">Copyright © 2018 Rodantny J. Reyes</a></p>
-                     <p><a id="FooterButton" href="https://www.wpunj.edu/directories/assets/Bus%20Schedules_8_16_18HR.pdf">Full Shuttle Schedule</a></p>
+                     <a id="FooterButton" href="https://www.wpunj.edu/directories/assets/Bus%20Schedules_8_16_18HR.pdf">Full Shuttle Schedule</a>
 
-                     <a id="github" href="https://github.com/Rodantny"><i className="fab fa-github"></i></a>
                  </div>
              </div>
 

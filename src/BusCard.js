@@ -93,9 +93,9 @@ class BusisWaiting extends Component {
     }
 
     fetch_state(){
-        var CurrentLocationID = this.props.current_stop.location;
-        var NextLocationID = this.props.current_stop.next_location;
-        var url = 'https://api.wpushuttle.com/stoplocation/';
+        let CurrentLocationID = this.props.current_stop.location;
+        let NextLocationID = this.props.current_stop.next_location;
+        let url = 'https://api.wpushuttle.com/stoplocation/';
 
         fetch(url + CurrentLocationID)
             .then(res => res.json())
@@ -120,6 +120,7 @@ class BusisWaiting extends Component {
     async refresh(){
         this.fetch_state();
     }
+
 
     render() {
         const {Currentlocation,Nextlocation, } = this.state;
@@ -218,19 +219,19 @@ class BusNotRunning extends Component {
     render() {
         return (
 
-                <div className="row">
+            <div className="row">
 
-                    <div className="countdown">
-                        <div className="minute">XX</div>
-                        <div className="minute_text">MINUTES</div>
-                    </div>
-
-                    <div class="BusDetails" >
-                        <i className="fas fa-times-circle"></i> Sorry! This Shuttle is not running at this time.
-                    </div>
-
-
+                <div className="countdown">
+                    <div className="minute">XX</div>
+                    <div className="minute_text">MINUTES</div>
                 </div>
+
+                <div class="BusDetails" >
+                    <i className="fas fa-times-circle"></i> Sorry! This Shuttle is not running at this time.
+                </div>
+
+
+            </div>
 
         );
     }
